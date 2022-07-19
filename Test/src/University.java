@@ -79,6 +79,7 @@ public class University {
 		if (!Groups.contains(g) && Faculties.contains(faculty)) {
 			Faculty fac = Faculties.get(Faculties.indexOf(faculty));
 			if(fac.Specialities.contains(speciality))
+			g.setFaculty(faculty);
 			Groups.add(g);
 		}
 	}
@@ -93,25 +94,71 @@ public class University {
 		}
 	}
 	
+	public void getGroupList(Faculty fac) {
+		System.out.println("Groups in this faculty:" );
+		for (UniversityGroup group : Groups) {
+			if(group.getFaculty() == fac) {
+				System.out.println(group.getGroupName());
+			}
+		}
+	
+	}
 	public void getGroupList() {
-		for (int i=0; i<Groups.size(); i++) {	
-			UniversityGroup group = Groups.get(i);
-			System.out.println(group.getGroupName());
+	
+		for (UniversityGroup group : Groups) {
+			
+				System.out.println(group.getGroupName());
+		
+		}
+	}
+	
+	public void findGroup(String name) {
+		for (UniversityGroup group : Groups) {
+			System.out.println(name+ " " + group.getGroupName());
+
+			if(group.getGroupName() == name) {
+				System.out.println("Found the group");
+			}
 		}
 	}
 	
 	@Override
 	public String toString() {
-	String text =  "University: " + universityName + "\nUniversity adress: " + universityAdress
-				+ "\nFaculties: \n";
+	String text =  "The " + universityName + " university, located at: " + universityAdress;
+	
+	return text;
+	}
+	
+	public void detailedInfo() {
+	String text =  "University: " + universityName 
+			+ "\nUniversity adress: " + universityAdress
+			+ "\nFaculties: \n";
+	System.out.println(text);
 	String faculties = "";
 	for(int i = 0; i<Faculties.size(); i++) {
-		faculties += Faculties.get(i).facultyName +  "\n" ;
-	}
-				return text + faculties;
-	}
-	
+		Faculty fac = Faculties.get(i);
+		faculties = Faculties.get(i).facultyName +  "\n" ;
+		System.out.println(faculties);
+//		fac.getSpecialitiesList();
+		for (int j=0; j<fac.Specialities.size(); j++) {	
+			String spec = fac.Specialities.get(j);
+			System.out.println(spec);
+		}
 
+	}
 	
+	for(int i = 0; i<Groups.size(); i++) {
+			UniversityGroup group = Groups.get(i);
+			System.out.println( "\n" + group.getGroupName());
+	}
+	
+	
+	for (int i=0; i<Students.size(); i++) {	
+		Student student= Students.get(i);
+		System.out.println("Student name:");
+		System.out.println(student.getName() + " " + student.getLastName() 
+		+ "\nPhone number" + student.getPhone() + "\n");
+	}
+	}
 	
 }

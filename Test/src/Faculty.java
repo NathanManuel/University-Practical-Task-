@@ -47,6 +47,7 @@ public class Faculty {
 	public List<String> getSpecialities() {
 		return Specialities;
 	}
+	
 	public void setSpecialities(List<String> specialities) {
 		Specialities = specialities;
 	}
@@ -54,7 +55,7 @@ public class Faculty {
 
 	@Override
 	public String toString() {
-	String text =  "Faculty: " + facultyName + "\nSpecialization: \n";
+	String text =  "Faculty: " + facultyName + "\nSpecialities: \n";
 	String specialities = "";
 	for(int i = 0; i<Specialities.size(); i++) {
 		specialities += Specialities.get(i) +  "\n" ;

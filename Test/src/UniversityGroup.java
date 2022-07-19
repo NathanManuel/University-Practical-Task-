@@ -3,6 +3,7 @@ import java.util.List;
 
 public class UniversityGroup {
 	public String groupName;
+	public Faculty faculty;
 	public List<Student> Students = new ArrayList<>();
 	
 	public UniversityGroup(String groupName) {
@@ -37,4 +38,27 @@ public class UniversityGroup {
 			System.out.println(student.name);
 		}
 	}
+	
+	
+
+	public List<Student> getStudents() {
+		return Students;
+	}
+
+
+	public void setStudents(List<Student> students) {
+		Students = students;
+	}
+
+
+	public Faculty getFaculty() {
+		return faculty;
+	}
+
+
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
+	}
+	
+	
 }
